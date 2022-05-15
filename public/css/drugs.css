@@ -1,0 +1,113 @@
+/* cards css */
+a {
+    text-decoration: none;
+}
+.card {
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.card img {
+    border-radius: 20px 20px 0 0;
+    height: 100%;
+}
+.card-body {
+    background-color: #209fb2;
+    color: white;
+    border-radius: 0px 0px 20px 20px;
+}
+.card-body a {
+    text-decoration: underline;
+    color: white;
+}
+.card-body a:hover {
+    color: #030945;
+}
+/* links, login, articles, about */
+.main {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.main .right .links {
+    max-width: 285px;
+}
+.main .right .links h3 {
+    color: #030945;
+}
+.main .right .links span {
+    padding-left: 10px;
+}
+.main .right .links span a {
+    color: #979797;
+}
+.main .right .links span a:hover {
+    text-decoration: none;
+    color: #030945;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #209fb2;
+    border-color: #209fb2;
+}
+.btn-primary:hover {
+    background-color: #030945;
+}
+.main .right .login {
+    max-width: 285px;
+    padding-top: 40px;
+}
+.main .right .login .form-control {
+    background-color: #e4e4e4;
+}
+.main .left .articles {
+    max-width: 285px;
+}
+.main .left .articles span {
+    padding-left: 10px;
+}
+.main .left .articles span a {
+    color: #979797;
+}
+.main .left .articles span a:hover {
+    text-decoration: none;
+    color: #030945;
+}
+.main .left .about {
+    max-width: 285px;
+    padding-top: 40px;
+}
+.main .left .about p {
+    color: #979797;
+}
+
+@media only screen and (max-width: 991px) {
+    .main {
+        flex-direction: column;
+    }
+    .main .right .links,
+    .login {
+        margin: auto;
+        text-align: center;
+    }
+    .main .left .articles,
+    .about {
+        margin: auto;
+        text-align: center;
+    }
+    .main .right .links {
+        padding-top: 40px;
+    }
+    .main .left .articles {
+        padding-top: 40px;
+    }
+    .pt-3,
+    .py-3 {
+        padding-top: 4rem !important;
+    }
+}
+
