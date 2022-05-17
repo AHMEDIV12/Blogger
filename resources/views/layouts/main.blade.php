@@ -12,6 +12,7 @@
     <!-- <link rel="stylesheet" href="{{ asset('css/about.css') }}"> -->
 
     @stack('extra-css')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,9 +24,7 @@
 
 <body>
     <!-- Start Navbar -->
-    <?php 
-    // dd(doctor());
-    ?>
+  
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand" href="../index.html">
@@ -60,21 +59,23 @@
                     @endauth
                     <li class="nav-item p-2 p-lg-3">
                         <input class="form-control rounded-pill" list="datalistOptions" id="exampleDataList"
-                            placeholder="ابحث عن طبيبك...">
+                                placeholder="ابحث عن طبيبك..." onchange="location = this.value;">
+
                         <datalist id="datalistOptions">
                             @if (doctor()->count() > 0 )
                                 @foreach(doctor() as $doctor )
-                                    <option value="د/ {{$doctor->name}}"><a href="{{route('web.doctors.show' , $doctor->id)}}"></a></option>
+                                    <option class="dropdown-item form-control rounded-pill" name="{{route('web.doctors.show' , $doctor->id) }}" value="http://127.0.0.1:8000/doctors/{{$doctor->id}}"> {{$doctor->name}}</option>
                                 @endforeach
                             @else
-                                <option value="د/ بدر">
-                                <option value="د/ محمد">
-                                <option value="د/ ابراهيم">
-                                <option value="د/ مريم">
-                                <option value="د/ اميره">
+                            <option value="د/ بدر">
+                            <option value="د/ محمد">
+                            <option value="د/ ابراهيم">
+                            <option value="د/ مريم">
+                            <option value="د/ اميره">
                             @endif
                         </datalist>
                     </li>
+                
                 </ul>
                 @auth
                 <div class="dropdown">
@@ -103,7 +104,7 @@
         </div>
     </nav>
     <!-- End Navbar -->
-
+            <h1 class="text-center" id="kalam"><h1>
     <!-- START PAGE CONTENT -->
     @yield('content')
     <!-- END   PAGE CONTENT -->
@@ -189,4 +190,16 @@
     @stack('js')
 </body>
 
+    <script>
+        let array= "ay kalam fady "
+        let y = document.getElementById('kalam')
+        function setlocalStorage(){ localStorage.setItem('user', array)
+    } 
+        let x = localStorage.getItem('user')
+            setlocalStorage();
+
+            y.innerHTML = localStorage.getItem('user')
+
+        console.log(x)
+    </script>
 </html>
